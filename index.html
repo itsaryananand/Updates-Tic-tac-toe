@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tic Tac Toe</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="default">
+  <div class="container">
+    <!--<h1>Tic Tac Toe</h1>/*-->
+
+    <!-- Settings -->
+    <div class="settings">
+      <button id="startGameButton">Start Game</button>
+     
+      <div class="theme-buttons">
+        <button id="defaultTheme">Default</button>
+        <button id="darkTheme">Dark</button>
+        <button id="oceanTheme">Ocean</button>
+        <button id="forestTheme">Forest</button>
+      </div>
+      <select id="difficultySelect">
+        <option value="easy">Easy</option>
+        <option value="medium">Medium</option>
+        <option value="hard" selected>Hard</option>
+      </select>
+      <label>
+        <input type="checkbox" id="multiplayerToggle"> Multiplayer Mode
+      </label>
+      <button id="undoButton">Undo Move</button>
+      <button id="resetButton">Reset Game</button>
+      <button id="helpButton">Help</button>
+    </div>
+
+    <!-- Scoreboard -->
+    <div class="scoreboard">
+      <p>Player Wins: <span id="playerWins">0</span></p>
+      <p>AI Wins: <span id="aiWins">0</span></p>
+      <p>Draws: <span id="draws">0</span></p>
+      <p>Player Streak: <span id="playerStreak">0</span></p>
+      <p>AI Streak: <span id="aiStreak">0</span></p>
+    </div>
+
+    <!-- Timer -->
+    <p id="timer">Time Left: <span id="timeLeft">10</span>s</p>
+
+    <!-- Game Board -->
+    <div class="game-board" id="gameBoard"></div>
+
+    <!-- Status Message -->
+    <p id="statusMessage">Click 'Start Game' to begin!</p>
+
+    <!-- Help Modal -->
+    <div id="helpModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>How to Play</h2>
+        <p>Click on a cell to place your mark (X or O). Try to get three in a row to win!</p>
+        <p>Use the settings to toggle dark mode, change difficulty, or reset the game.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Audio Elements -->
+  <audio id="moveSound" src="move.mp3"></audio>
+  <audio id="winSound" src="win.mp3"></audio>
+  <audio id="drawSound" src="draw.mp3"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>

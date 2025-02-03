@@ -1,0 +1,257 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f9;
+    transition: all 0.3s ease;
+  }
+  
+  /* Default Theme */
+  body.default {
+    background-color: #f4f4f9;
+    color: #333;
+  }
+  
+  body.default button {
+    background-color: #fa2a00;
+    color: white;
+  }
+  
+  body.default button:hover {
+    background-color: #14120f;
+  }
+  
+  body.default .cell[data-player="X"] {
+    color: #e74c3c; /* Red for X */
+  }
+  
+  body.default .cell[data-player="O"] {
+    color: #0e0e0e; /* Blue for O */
+  }
+  
+  /* Dark Theme */
+  body.dark {
+    background-color: #1a1a1a;
+    color: #ffffff;
+  }
+  
+  body.dark button {
+    background-color: #343232;
+    color: rgb(249, 244, 244);
+  }
+  
+  body.dark button:hover {
+    background-color: #030303;
+  }
+  
+  body.dark .cell[data-player="X"] {
+    color: #4e4949; /* Light Red for X */
+  }
+  
+  body.dark .cell[data-player="O"] {
+    color: #ff74c7; /* Light Blue for O */
+  }
+  
+  /* Ocean Theme */
+  body.ocean {
+    background-color: #0077b6;
+    color: #ffffff;
+  }
+  
+  body.ocean button {
+    background-color: #02315f;
+    color: rgb(16, 243, 239);
+  }
+  
+  body.ocean button:hover {
+    background-color: #0096c7;
+  }
+  
+  body.ocean .cell[data-player="X"] {
+    color: #ff6b6b; /* Coral Red for X */
+  }
+  
+  body.ocean .cell[data-player="O"] {
+    color: #90e0ef; /* Light Cyan for O */
+  }
+  
+  /* Forest Theme */
+  body.forest {
+    background-color: #2a9d8f;
+    color: #ffffff;
+  }
+  
+  body.forest button {
+    background-color: #0ec259;
+    color: rgb(255, 255, 255);
+  }
+  
+  body.forest button:hover {
+    background-color: #011210;
+  }
+  
+  body.forest .cell[data-player="X"] {
+    color: #e76f51; /* Burnt Orange for X */
+  }
+  
+  body.forest .cell[data-player="O"] {
+    color: #70f461; /* Sandy Brown for O */
+  }
+  
+  .container {
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+  }
+  
+  h1 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: #ff0000;
+  }
+  
+  .settings {
+    margin-bottom: 20px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  select {
+    padding: 8px;
+    border-radius: 5px;
+    margin: 5px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+  }
+  
+  .scoreboard {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+  }
+  
+  .scoreboard p {
+    font-size: 1.2rem;
+    color: #575252;
+  }
+  
+  #timer {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #e74c3c;
+  }
+  
+  #statusMessage {
+    color: #333;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    font-weight: bold;
+  }
+  
+  .game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .cell {
+    width: 100px;
+    height: 100px;
+    background-color: #fff8f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    border: 2px solid #171313;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+  }
+  
+  .cell:hover {
+    background-color: #f0f0f0;
+    transform: scale(1.05);
+  }
+  
+  .winning-cell {
+    background-color: #e70606 !important;
+    color: white !important;
+    transform: scale(1.1);
+    transition: all 0.5s ease;
+  }
+  
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(235, 225, 225, 0.5);
+  }
+  
+  .modal-content {
+    background-color: #958f8f;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #fff8f8;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+  }
+  
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .close:hover {
+    color: #000;
+  }
+  
+  @media (max-width: 600px) {
+    .game-board {
+      grid-template-columns: repeat(3, 80px);
+    }
+  
+    .cell {
+      width: 80px;
+      height: 80px;
+      font-size: 1.5rem;
+    }
+  
+    h1 {
+      font-size: 1.5rem;
+    }
+  
+    button {
+      padding: 8px 16px;
+      font-size: 0.9rem;
+    }
+  }
+ 
